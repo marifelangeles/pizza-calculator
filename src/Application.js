@@ -13,6 +13,7 @@ const initialState = {
 
 const WithPizzaCalculations = WrappedComponent => {
   return class extends Component {
+    static displayName = `WithPizzaCalculations(${ WrappedComponent.displayName || WrappedComponent.name })`;
     state = { ...initialState };
 
     updateNumberOfPeople = event => {
@@ -48,7 +49,12 @@ const WithPizzaCalculations = WrappedComponent => {
       );
     }
   }
+  // Container.displayName = `WithPizzaCalculations(${WrappedComponent.displayName || WrappedComponent.name})`
+  // console.log('WrappedComponent.displayName ', WrappedComponent.displayName);
+  // console.log('WrappedComponent.name ', WrappedComponent.name);
+  // return Container;
 }
+
 class PizzaCalculator extends Component {
   render() {
     const { 
